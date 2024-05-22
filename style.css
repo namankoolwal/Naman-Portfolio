@@ -182,6 +182,7 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
     font-size: 25px;
     color: rgb(212, 212, 212); 
     margin-left: 20px;
+    margin-right: 20px;
     padding: 15px;
     border-radius: 10px;
     background-color: #41414b;
@@ -324,8 +325,8 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
 
 .icon {
     color: #cc00ff;
-    font-size: 25px; /* Set your desired icon size */
-    margin-left: 7px; /* Adjust margin as needed */
+    font-size: 35px; /* Set your desired icon size */
+    margin-left: 25px; /* Adjust margin as needed */
 }
 
 .icon:hover {
@@ -478,7 +479,7 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
     .header {
         height: 120px;
         flex-direction: column;
-        padding: 10px 1px;
+        padding: 10px 10px;
     }
 
     .profile {
@@ -540,5 +541,8 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
         align-items: center;
     }
 
-    
+    .icon {
+        font-size: 20px; /* Set your desired icon size */
+        margin-left: 7px; /* Adjust margin as needed */
+    }
 }
