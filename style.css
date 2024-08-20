@@ -161,12 +161,17 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
   border-radius: 10px;
   overflow: hidden;
   width: 370px;
-  height: 270px;
+  height: 310px;
+  padding-bottom: 5px;
   /* margin-bottom: 20px;  */
   /* margin-right: 20px; */
   background-color: rgb(20, 24, 32);
+  border: 1px solid rgb(58, 58, 58);
   color: rgb(155, 155, 155);
   transition: all 0.5s ease-in-out;
+}
+.project-title{
+  margin: 10px 0px;
 }
 .project-card:hover img {
   box-shadow: 0 0 10px 0 rgba(85, 85, 85, 0.1);
@@ -198,12 +203,13 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
 .visiting {
   position: absolute;
   backdrop-filter: blur(10px);
-  height: 72%;
+  height: 71%;
   top: 0px;
   width: 100%;
   /* padding: 20px 0 20px 0; */
   transition: all 0.5s ease-in-out;
   opacity: 0;
+  margin-top: auto;
 }
 .tags {
   position: absolute;
@@ -250,7 +256,7 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
 }
 .info {
   position: absolute;
-  bottom: 80px;
+  bottom: 100px;
   text-align: center;
   font-size: 14px;
   width: 100%;
