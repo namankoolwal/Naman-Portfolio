@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
+
+
 body {
   margin: 0;
   padding: 0;
@@ -138,9 +140,9 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   /* background-color: #5851DB; */
-  gap: 20px;
+  gap: 29px;
   padding: 20px 40px;
 }
 
@@ -292,7 +294,7 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
   border-radius: 10px;
   overflow: hidden;
   width: 290px;
-  height: 230px;
+  height: 250px;
   margin-bottom: 20px;
   margin-right: 20px;
   background-color: rgb(20, 24, 32);
@@ -304,11 +306,13 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
   font-family: "Andika", sans-serif;
   font-weight: 400;
   font-style: normal;
-  padding-left: 5px;
+  margin: 10px 0px;
+  padding-left: 12px;
   padding-right: 2px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* background-color: #405de6; */
+  justify-content: start;
 }
 
 .project-card2 img {
