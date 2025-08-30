@@ -44,7 +44,22 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
 }
 
 .follow-button {
-  max-width: 400px; /* Adjusted max-width */
+  max-width: 500px; /* Increased max-width to accommodate longer description */
+}
+
+.instagram-button {
+  padding: 8px 12px; /* Adjusted padding for a smaller button */
+  background: linear-gradient(to right, #405de6, #5851db, #833ab4);
+  color: white;
+  font-family: "Andika", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: none; /* Corrected property name from 'solid' to 'none' */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s; /* Smooth transition effect */
+  white-space: nowrap; /* Prevent text from wrapping */
 }
 
 .profile-picture {
@@ -84,19 +99,7 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
   margin-right: 10px; /* Add margin between buttons */
 }
 
-.instagram-button {
-  padding: 8px 12px; /* Adjusted padding for a smaller button */
-  background: linear-gradient(to right, #405de6, #5851db, #833ab4);
-  color: white;
-  font-family: "Andika", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  text-decoration: none; /* Corrected property name from 'solid' to 'none' */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s; /* Smooth transition effect */
-}
+
 
 .instagram-button:hover {
   background: linear-gradient(to right, #833ab4, #5851db, #405de6);
@@ -574,5 +577,263 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
     font-size: small;
     padding-left: 8px;
     padding-right: 8px;
+  }
+}
+
+/* ============================================EXPERIENCE SECTION============================================= */
+
+.experience-container {
+  margin: 20px;
+  padding: 0;
+}
+
+.experience-item {
+  display: flex;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  min-width: 20px;
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #833ab4;
+  border: 3px solid #405de6;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-dot.active {
+  background-color: #405de6;
+  box-shadow: 0 0 10px rgba(64, 93, 230, 0.5);
+}
+
+.timeline-line {
+  width: 2px;
+  height: 60px;
+  background: linear-gradient(to bottom, #405de6, #833ab4);
+  margin-top: 5px;
+}
+
+.experience-content {
+  flex: 1;
+  background-color: rgb(20, 24, 32);
+  border: 1px solid rgb(58, 58, 58);
+  border-radius: 10px;
+  padding: 20px;
+  color: rgb(155, 155, 155);
+  transition: all 0.3s ease;
+}
+
+.experience-content:hover {
+  border-color: #833ab4;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(131, 58, 180, 0.2);
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.experience-title {
+  color: white;
+  font-family: "Andika", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+  flex: 1;
+  min-width: 200px;
+}
+
+.experience-duration {
+  color: #405de6;
+  font-family: "Andika", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  background: linear-gradient(45deg, #405de6, #833ab4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-left: 10px;
+}
+
+.experience-company {
+  color: #57a6ff;
+  font-family: "Andika", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.experience-location {
+  color: rgb(155, 155, 155);
+  font-family: "Andika", sans-serif;
+  font-size: 14px;
+  margin: 5px 0 15px 0;
+}
+
+.experience-description {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experience-description li {
+  color: rgb(200, 200, 200);
+  font-family: "Andika", sans-serif;
+  font-size: 14px;
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.experience-description li::before {
+  content: "▶";
+  color: #833ab4;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* ============================================EDUCATION SECTION============================================= */
+
+.education-container {
+  margin: 20px;
+  padding: 0;
+}
+
+.education-item {
+  margin-bottom: 20px;
+}
+
+.education-content {
+  background-color: rgb(20, 24, 32);
+  border: 1px solid rgb(58, 58, 58);
+  border-radius: 10px;
+  padding: 20px;
+  color: rgb(155, 155, 155);
+  transition: all 0.3s ease;
+}
+
+.education-content:hover {
+  border-color: #405de6;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(64, 93, 230, 0.2);
+}
+
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.education-title {
+  color: white;
+  font-family: "Andika", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+  flex: 1;
+  min-width: 200px;
+}
+
+.education-duration {
+  color: #405de6;
+  font-family: "Andika", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  background: linear-gradient(45deg, #405de6, #833ab4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-left: 10px;
+}
+
+.education-institution {
+  color: #57a6ff;
+  font-family: "Andika", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.education-field {
+  color: rgb(155, 155, 155);
+  font-family: "Andika", sans-serif;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+/* ============================================RESPONSIVE DESIGN============================================= */
+
+@media only screen and (max-width: 768px) {
+  .experience-header,
+  .education-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .experience-duration,
+  .education-duration {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+  
+  .experience-timeline {
+    margin-right: 15px;
+  }
+  
+  .timeline-line {
+    height: 40px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .experience-container,
+  .education-container {
+    margin: 10px;
+  }
+  
+  .experience-content,
+  .education-content {
+    padding: 15px;
+  }
+  
+  .experience-title,
+  .education-title {
+    font-size: 16px;
+  }
+  
+  .experience-company,
+  .education-institution {
+    font-size: 14px;
+  }
+  
+  .experience-timeline {
+    margin-right: 10px;
+  }
+  
+  .timeline-dot {
+    width: 12px;
+    height: 12px;
+    border: 2px solid #405de6;
+  }
+  
+  .timeline-line {
+    height: 30px;
   }
 }
