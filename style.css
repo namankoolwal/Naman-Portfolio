@@ -190,12 +190,17 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
   font-weight: bolder;
   font-style: normal;
   font-size: 25px;
-  color: rgb(212, 212, 212);
+  color: #ffffff;
   margin-left: 20px;
   margin-right: 20px;
   padding: 15px;
   border-radius: 10px;
   background-color: #41414b;
+  background: linear-gradient(135deg, #405de6, #833ab4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(64, 93, 230, 0.3);
 }
 
 .Sub-category{
@@ -776,6 +781,368 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
   font-family: "Andika", sans-serif;
   font-size: 14px;
   margin: 5px 0;
+}
+
+/* ============================================RESPONSIVE DESIGN============================================= */
+
+/* ============================================FULL-WIDTH HORIZONTAL LAYOUTS============================================= */
+
+/* Full-width Projects Layout */
+.projects-container-horizontal {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.project-card-horizontal {
+  display: flex;
+  align-items: center;
+  background-color: rgb(20, 24, 32);
+  border: 1px solid rgb(58, 58, 58);
+  border-radius: 15px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-card-horizontal:hover {
+  border-color: #833ab4;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(131, 58, 180, 0.3);
+}
+
+.project-card-horizontal:hover .project-image-horizontal {
+  transform: scale(1.05);
+}
+
+.project-image-horizontal {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 25px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.project-content-horizontal {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-title-horizontal {
+  color: white;
+  font-family: "Andika", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  margin: 0 0 8px 0;
+}
+
+.project-description-horizontal {
+  color: rgb(200, 200, 200);
+  font-family: "Andika", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 10px 0;
+}
+
+.project-skills-horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.skill-tag-horizontal {
+  background: linear-gradient(45deg, #405de6, #833ab4);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-family: "Andika", sans-serif;
+  font-weight: 500;
+}
+
+.project-actions-horizontal {
+  display: flex;
+  gap: 10px;
+  margin-left: 20px;
+  flex-shrink: 0;
+}
+
+.action-button-horizontal {
+  background: linear-gradient(45deg, #405de6, #833ab4);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-family: "Andika", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.action-button-horizontal:hover {
+  background: linear-gradient(45deg, #833ab4, #405de6);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(131, 58, 180, 0.4);
+}
+
+/* Learning Section Horizontal Layout */
+.learning-container-horizontal {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px 0;
+}
+
+.learning-card-horizontal {
+  display: flex;
+  align-items: center;
+  background-color: rgb(20, 24, 32);
+  border: 1px solid rgb(58, 58, 58);
+  border-radius: 15px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.learning-card-horizontal:hover {
+  border-color: #405de6;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(64, 93, 230, 0.2);
+}
+
+.learning-icon-horizontal {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(45deg, #405de6, #833ab4);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.learning-content-horizontal {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.learning-title-horizontal {
+  color: white;
+  font-family: "Andika", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+}
+
+.learning-description-horizontal {
+  color: rgb(180, 180, 180);
+  font-family: "Andika", sans-serif;
+  font-size: 14px;
+  margin: 0;
+}
+
+.learning-level-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.level-bar-horizontal {
+  flex: 1;
+  height: 6px;
+  background-color: rgb(58, 58, 58);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.level-progress-horizontal {
+  height: 100%;
+  background: linear-gradient(45deg, #405de6, #833ab4);
+  transition: width 0.3s ease;
+}
+
+.level-text-horizontal {
+  color: #405de6;
+  font-family: "Andika", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 70px;
+}
+
+/* Certificates Section Horizontal Layout */
+.certificates-container-horizontal {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.certificate-card-horizontal {
+  display: flex;
+  align-items: center;
+  background-color: rgb(20, 24, 32);
+  border: 1px solid rgb(58, 58, 58);
+  border-radius: 15px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.certificate-card-horizontal:hover {
+  border-color: #833ab4;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(131, 58, 180, 0.3);
+}
+
+.certificate-card-horizontal:hover .certificate-image-horizontal {
+  transform: scale(1.05);
+}
+
+.certificate-image-horizontal {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-right: 25px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+}
+
+.certificate-content-horizontal {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.certificate-title-horizontal {
+  color: white;
+  font-family: "Andika", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0 0 5px 0;
+}
+
+.certificate-issuer-horizontal {
+  color: #57a6ff;
+  font-family: "Andika", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 0 0 8px 0;
+}
+
+.certificate-description-horizontal {
+  color: rgb(180, 180, 180);
+  font-family: "Andika", sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.certificate-actions-horizontal {
+  display: flex;
+  gap: 10px;
+  margin-left: 20px;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+
+.certificate-badge-horizontal {
+  background: linear-gradient(45deg, #405de6, #833ab4);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-family: "Andika", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Responsive Design for Horizontal Layouts */
+@media only screen and (max-width: 768px) {
+  .project-card-horizontal,
+  .certificate-card-horizontal {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .project-image-horizontal,
+  .certificate-image-horizontal {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  
+  .project-actions-horizontal,
+  .certificate-actions-horizontal {
+    margin-left: 0;
+    margin-top: 15px;
+    justify-content: center;
+  }
+  
+  .learning-card-horizontal {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .learning-icon-horizontal {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  
+  .learning-level-horizontal {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .projects-container-horizontal,
+  .learning-container-horizontal,
+  .certificates-container-horizontal {
+    margin: 10px;
+  }
+  
+  .project-card-horizontal,
+  .learning-card-horizontal,
+  .certificate-card-horizontal {
+    padding: 15px;
+  }
+  
+  .project-image-horizontal {
+    width: 150px;
+    height: 110px;
+  }
+  
+  .certificate-image-horizontal {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 /* ============================================RESPONSIVE DESIGN============================================= */
