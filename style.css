@@ -413,7 +413,8 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
 }
 .container2 {
   width: 250px;
-  height: 200px;
+  min-height: 200px;
+  height: auto;
   background-color: rgb(20, 24, 32);
   border-radius: 10px;
   display: flex;
@@ -431,6 +432,54 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
   font-family: "Andika", sans-serif;
   padding-left: 5px;
   padding-right: 2px;
+}
+
+.company {
+  color: rgb(120, 120, 120);
+  font-weight: 600;
+  font-size: medium;
+  font-family: "Andika", sans-serif;
+  padding-left: 5px;
+  padding-right: 2px;
+  margin-top: 5px;
+}
+
+.location {
+  color: rgb(100, 100, 100);
+  font-size: small;
+  font-family: "Andika", sans-serif;
+  padding-left: 5px;
+  padding-right: 2px;
+  margin-top: 2px;
+}
+
+.duration {
+  color: rgb(140, 140, 140);
+  font-size: small;
+  font-family: "Andika", sans-serif;
+  padding-left: 5px;
+  padding-right: 2px;
+  margin-top: 2px;
+}
+
+.employment-type {
+  color: rgb(80, 140, 200);
+  font-size: small;
+  font-weight: 500;
+  font-family: "Andika", sans-serif;
+  padding-left: 5px;
+  padding-right: 2px;
+  margin-top: 2px;
+}
+
+.description {
+  color: rgb(155, 155, 155);
+  font-size: small;
+  font-family: "Andika", sans-serif;
+  padding-left: 5px;
+  padding-right: 2px;
+  margin-top: 8px;
+  line-height: 1.4;
 }
 
 .tags-container {
