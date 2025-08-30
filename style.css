@@ -190,12 +190,26 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
   font-weight: bolder;
   font-style: normal;
   font-size: 25px;
-  color: rgb(212, 212, 212);
+  color: white;
   margin-left: 20px;
   margin-right: 20px;
-  padding: 15px;
-  border-radius: 10px;
-  background-color: #41414b;
+  padding: 20px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #405de6, #833ab4);
+  box-shadow: 0 8px 32px rgba(131, 58, 180, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.project::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  pointer-events: none;
 }
 
 .Sub-category{
@@ -373,18 +387,52 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 30px;
   position: relative;
-  height: 100px;
-  border-radius: 10px;
+  min-height: 120px;
+  border-radius: 15px;
   overflow: hidden;
+  background: linear-gradient(135deg, #405de6, #833ab4);
+  box-shadow: 0 8px 32px rgba(131, 58, 180, 0.3);
+  margin: 20px;
+}
 
-  /* background: rgb(109,0,251);
-background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, rgba(37,101,119,1) 28%,
- rgba(27,72,98,1) 43%, rgba(89,88,97,1) 70%, rgba(9,121,110,1) 100%, rgba(3,50,25,1) 100%, rgba(2,0,36,1) 100%); */
+.resume-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-  background: rgb(20, 24, 32);
-  margin: 10px;
+.resume-title {
+  color: white;
+  font-family: "Andika", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+}
+
+.enhanced-button {
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  height: auto;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Andika", sans-serif;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+.enhanced-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .social-container a {
@@ -406,6 +454,146 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
 .button:hover {
   background: linear-gradient(to right, #833ab4, #5851db, #405de6);
   color: black;
+}
+
+/* ============================================MY LEARNINGS SECTION (ROW LAYOUT)============================================= */
+
+.learnings-row-container {
+  margin: 20px;
+  padding: 0;
+}
+
+.learning-row-item {
+  display: flex;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.learning-row-content {
+  flex: 1;
+  background-color: rgb(20, 24, 32);
+  border: 1px solid rgb(58, 58, 58);
+  border-radius: 10px;
+  padding: 20px;
+  color: rgb(155, 155, 155);
+  transition: all 0.3s ease;
+}
+
+.learning-row-content:hover {
+  border-color: #833ab4;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(131, 58, 180, 0.2);
+}
+
+.learning-row-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.learning-row-title {
+  color: white;
+  font-family: "Andika", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+  flex: 1;
+  min-width: 200px;
+}
+
+.learning-skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.learning-skill-tag {
+  min-width: 30px;
+  height: 30px;
+  background-color: rgb(26, 31, 41);
+  margin: 2px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Andika", sans-serif;
+  font-size: medium;
+  padding: 8px 12px;
+  color: rgb(155, 155, 155);
+  border: 1px solid #833ab4;
+  transition: all 0.3s ease;
+}
+
+.learning-skill-tag:hover {
+  background-color: #833ab4;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* ============================================BADGES & CERTIFICATES SECTION (ROW LAYOUT)============================================= */
+
+.certificates-row-container {
+  margin: 20px;
+  padding: 0;
+}
+
+.certificate-row-item {
+  display: flex;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.certificate-row-content {
+  flex: 1;
+  background-color: rgb(20, 24, 32);
+  border: 1px solid rgb(58, 58, 58);
+  border-radius: 10px;
+  padding: 20px;
+  color: rgb(155, 155, 155);
+  transition: all 0.3s ease;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.certificate-row-content:hover {
+  border-color: #405de6;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(64, 93, 230, 0.2);
+}
+
+.certificate-row-image {
+  width: 80px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: contain;
+  flex-shrink: 0;
+  background-color: #1f2433;
+  padding: 10px;
+}
+
+.certificate-row-details {
+  flex: 1;
+}
+
+.certificate-row-title {
+  color: white;
+  font-family: "Andika", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 0;
+}
+
+.certificate-row-issuer {
+  color: #57a6ff;
+  font-family: "Andika", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 5px 0 0 0;
 }
 
 .skillset {
@@ -501,6 +689,100 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
   border-radius: 2px;
 }
 
+/* ============================================ANIMATIONS AND MICRO-INTERACTIONS============================================= */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(64, 93, 230, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(64, 93, 230, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(64, 93, 230, 0);
+  }
+}
+
+.experience-item {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.education-item {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.project-row-item {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.learning-row-item {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.certificate-row-item {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.timeline-dot.active {
+  animation: pulse 2s infinite;
+}
+
+.project {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Add stagger delay for sequential animations */
+.experience-item:nth-child(1) { animation-delay: 0.1s; }
+.experience-item:nth-child(2) { animation-delay: 0.2s; }
+.experience-item:nth-child(3) { animation-delay: 0.3s; }
+
+.education-item:nth-child(1) { animation-delay: 0.1s; }
+.education-item:nth-child(2) { animation-delay: 0.2s; }
+.education-item:nth-child(3) { animation-delay: 0.3s; }
+.education-item:nth-child(4) { animation-delay: 0.4s; }
+
+.project-row-item:nth-child(1) { animation-delay: 0.1s; }
+.project-row-item:nth-child(2) { animation-delay: 0.2s; }
+.project-row-item:nth-child(3) { animation-delay: 0.3s; }
+.project-row-item:nth-child(4) { animation-delay: 0.4s; }
+.project-row-item:nth-child(5) { animation-delay: 0.5s; }
+.project-row-item:nth-child(6) { animation-delay: 0.6s; }
+
+.learning-row-item:nth-child(1) { animation-delay: 0.1s; }
+.learning-row-item:nth-child(2) { animation-delay: 0.2s; }
+.learning-row-item:nth-child(3) { animation-delay: 0.3s; }
+.learning-row-item:nth-child(4) { animation-delay: 0.4s; }
+
+.certificate-row-item:nth-child(1) { animation-delay: 0.1s; }
+.certificate-row-item:nth-child(2) { animation-delay: 0.2s; }
+.certificate-row-item:nth-child(3) { animation-delay: 0.3s; }
+.certificate-row-item:nth-child(4) { animation-delay: 0.4s; }
+.certificate-row-item:nth-child(5) { animation-delay: 0.5s; }
+.certificate-row-item:nth-child(6) { animation-delay: 0.6s; }
+.certificate-row-item:nth-child(7) { animation-delay: 0.7s; }
+
 /* Media Query for smaller screens */
 @media only screen and (max-width: 600px) {
   .header {
@@ -580,7 +862,110 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
   }
 }
 
-/* ============================================EXPERIENCE SECTION============================================= */
+/* ============================================PROJECTS SECTION (ROW LAYOUT)============================================= */
+
+.projects-row-container {
+  margin: 20px;
+  padding: 0;
+}
+
+.project-row-item {
+  display: flex;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.project-row-content {
+  flex: 1;
+  background-color: rgb(20, 24, 32);
+  border: 1px solid rgb(58, 58, 58);
+  border-radius: 10px;
+  padding: 20px;
+  color: rgb(155, 155, 155);
+  transition: all 0.3s ease;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.project-row-content:hover {
+  border-color: #405de6;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(64, 93, 230, 0.2);
+}
+
+.project-row-image {
+  width: 200px;
+  height: 120px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.project-row-details {
+  flex: 1;
+}
+
+.project-row-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.project-row-title {
+  color: white;
+  font-family: "Andika", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+  flex: 1;
+  min-width: 200px;
+}
+
+.project-row-skills {
+  color: #57a6ff;
+  font-family: "Andika", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 5px 0 15px 0;
+}
+
+.project-row-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.project-action-btn {
+  min-width: 30px;
+  height: 30px;
+  background-color: rgb(26, 31, 41);
+  margin: 5px 5px 5px 5px;
+  border-radius: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Andika", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: medium;
+  padding-left: 12px;
+  color: rgb(155, 155, 155);
+  padding-right: 12px;
+  border: 2px solid #405de6;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.project-action-btn:hover {
+  background-color: #405de6;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* ============================================PROJECTS SECTION============================================= */
 
 .experience-container {
   margin: 20px;
@@ -621,6 +1006,10 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
   height: 60px;
   background: linear-gradient(to bottom, #405de6, #833ab4);
   margin-top: 5px;
+}
+
+.experience-item:last-child .timeline-line {
+  display: none;
 }
 
 .experience-content {
@@ -835,5 +1224,35 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
   
   .timeline-line {
     height: 30px;
+  }
+  
+  /* Responsive design for row layouts */
+  .project-row-content,
+  .learning-row-content,
+  .certificate-row-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .project-row-image,
+  .certificate-row-image {
+    width: 100%;
+    height: 120px;
+    max-width: 200px;
+    align-self: center;
+  }
+  
+  .project-row-header,
+  .learning-row-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .project-row-actions {
+    justify-content: center;
+  }
+  
+  .learning-skills-container {
+    justify-content: center;
   }
 }
