@@ -1488,3 +1488,217 @@ background: linear-gradient(90deg, rgba(109,0,251,1) 0%, rgba(57,185,158,1) 0%, 
     font-size: 18px;
   }
 }
+
+/* ============================================3D INTERACTIVE EXPERIENCE============================================= */
+
+/* Three.js canvas fixed background */
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Page loader */
+.page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #020102;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.7s ease;
+}
+
+.loader-ring {
+  width: 52px;
+  height: 52px;
+  border: 3px solid rgba(64, 93, 230, 0.2);
+  border-top-color: #405de6;
+  border-radius: 50%;
+  animation: loaderSpin 0.85s linear infinite;
+}
+
+@keyframes loaderSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #405de6, #833ab4, #57a6ff, #5851db);
+  transform-origin: left center;
+  transform: scaleX(0);
+  z-index: 1000;
+  border-radius: 0 2px 2px 0;
+}
+
+/* Custom cursor */
+.cursor {
+  width: 8px;
+  height: 8px;
+  background: #a0b4ff;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+  mix-blend-mode: screen;
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease;
+}
+
+.cursor.hover {
+  width: 14px;
+  height: 14px;
+  background: #cc88ff;
+}
+
+.cursor-follower {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(140, 100, 255, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  will-change: transform;
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease;
+}
+
+.cursor-follower.hover {
+  width: 56px;
+  height: 56px;
+  border-color: rgba(180, 100, 255, 0.35);
+}
+
+/* Navigation dots (right sidebar) */
+.nav-dots {
+  position: fixed;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  z-index: 100;
+}
+
+.nav-dot {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.nav-dot:hover,
+.nav-dot.active {
+  background: #405de6;
+  border-color: #405de6;
+  box-shadow: 0 0 10px rgba(64, 93, 230, 0.65), 0 0 22px rgba(64, 93, 230, 0.3);
+  transform: scale(1.45);
+}
+
+.nav-dot-label {
+  position: absolute;
+  right: 22px;
+  font-size: 11px;
+  font-family: 'Andika', sans-serif;
+  color: rgba(255, 255, 255, 0.92);
+  white-space: nowrap;
+  background: rgba(12, 12, 24, 0.92);
+  padding: 4px 10px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  border: 1px solid rgba(64, 93, 230, 0.35);
+}
+
+.nav-dot:hover .nav-dot-label {
+  opacity: 1;
+}
+
+/* 3D perspective context for section containers */
+.experience-container,
+.education-container,
+.projects-row-container,
+.learnings-row-container,
+.certificates-row-container {
+  perspective: 1200px;
+}
+
+/* Performance hints for tilt/transform elements */
+.project-row-content,
+.experience-content,
+.education-content,
+.learning-row-content,
+.certificate-row-content {
+  will-change: transform;
+}
+
+/* Enhanced glow on card hover */
+.project-row-content:hover,
+.experience-content:hover,
+.education-content:hover,
+.learning-row-content:hover,
+.certificate-row-content:hover {
+  box-shadow:
+    0 10px 35px rgba(64, 93, 230, 0.3),
+    0 0 0 1px rgba(64, 93, 230, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Disable CSS page-load animations — GSAP scroll-triggers take over */
+.experience-item,
+.education-item,
+.project-row-item,
+.learning-row-item,
+.certificate-row-item,
+.Sub-category,
+.morePosts,
+.profile,
+.follow-button {
+  animation: none !important;
+}
+
+/* Restore the pulsing timeline dot (not controlled by GSAP) */
+.timeline-dot.active {
+  animation: pulse 2s infinite !important;
+}
+
+/* Scroll-margin so nav dot clicks land correctly */
+[id^="section-"] {
+  scroll-margin-top: 60px;
+}
+
+/* Hide dots / custom cursor on mobile */
+@media (max-width: 768px) {
+  .nav-dots {
+    display: none;
+  }
+  .cursor,
+  .cursor-follower {
+    display: none !important;
+  }
+}
