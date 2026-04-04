@@ -22,6 +22,7 @@ window.addEventListener('load', function () {
 // ===================== LENIS SMOOTH SCROLL =====================
 var lenis = new Lenis({
   duration: 1.2,
+  // 1.001 (not exactly 1) prevents the easing from reaching 0 too fast, giving a smoother stop
   easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
   smoothWheel: true
 });
@@ -52,7 +53,9 @@ if (progressBar) {
   if (!canvas || typeof THREE === 'undefined') return;
 
   var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: false });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+  // Cap pixel ratio at 1.5 to avoid performance issues on high-DPI displays
+  var MAX_PIXEL_RATIO = 1.5;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, MAX_PIXEL_RATIO));
   renderer.setSize(window.innerWidth, window.innerHeight);
 
   var scene = new THREE.Scene();
@@ -60,14 +63,14 @@ if (progressBar) {
   camera.position.z = 40;
 
   // --- Particles ---
-  var N = 90;
-  var SPREAD = 32;
-  var pos = new Float32Array(N * 3);
-  var vel = new Float32Array(N * 2);
+  var PARTICLE_COUNT = 90;
+  var PARTICLE_SPREAD = 32;
+  var pos = new Float32Array(PARTICLE_COUNT * 3);
+  var vel = new Float32Array(PARTICLE_COUNT * 2);
 
-  for (var i = 0; i < N; i++) {
-    pos[i * 3]     = (Math.random() - 0.5) * SPREAD * 2;
-    pos[i * 3 + 1] = (Math.random() - 0.5) * SPREAD * 2;
+  for (var i = 0; i < PARTICLE_COUNT; i++) {
+    pos[i * 3]     = (Math.random() - 0.5) * PARTICLE_SPREAD * 2;
+    pos[i * 3 + 1] = (Math.random() - 0.5) * PARTICLE_SPREAD * 2;
     pos[i * 3 + 2] = (Math.random() - 0.5) * 8;
     vel[i * 2]     = (Math.random() - 0.5) * 0.007;
     vel[i * 2 + 1] = (Math.random() - 0.5) * 0.007;
@@ -89,7 +92,7 @@ if (progressBar) {
   scene.add(points);
 
   // --- Connecting lines ---
-  var MAX_LINES = N * 3;
+  var MAX_LINES = PARTICLE_COUNT * 3;
   var lBuf = new Float32Array(MAX_LINES * 6);
   var lGeo = new THREE.BufferGeometry();
   lGeo.setAttribute('position', new THREE.BufferAttribute(lBuf, 3));
@@ -114,29 +117,30 @@ if (progressBar) {
   });
 
   var frame = 0;
-  var D = 12; // max connection distance
+  // Maximum distance for two particles to draw a connecting line
+  var MAX_CONNECT_DIST = 12;
 
   function tick() {
     requestAnimationFrame(tick);
 
-    // Move particles
-    for (var i = 0; i < N; i++) {
+    // Move particles and bounce off virtual walls
+    for (var i = 0; i < PARTICLE_COUNT; i++) {
       pos[i * 3]     += vel[i * 2];
       pos[i * 3 + 1] += vel[i * 2 + 1];
-      if (Math.abs(pos[i * 3])     > SPREAD) vel[i * 2]     *= -1;
-      if (Math.abs(pos[i * 3 + 1]) > SPREAD) vel[i * 2 + 1] *= -1;
+      if (Math.abs(pos[i * 3])     > PARTICLE_SPREAD) vel[i * 2]     *= -1;
+      if (Math.abs(pos[i * 3 + 1]) > PARTICLE_SPREAD) vel[i * 2 + 1] *= -1;
     }
     pGeo.attributes.position.needsUpdate = true;
 
     // Update lines every 5 frames
     if (frame % 5 === 0) {
       var lc = 0;
-      for (var i = 0; i < N && lc < MAX_LINES; i++) {
+      for (var i = 0; i < PARTICLE_COUNT && lc < MAX_LINES; i++) {
         var conns = 0;
-        for (var j = i + 1; j < N && conns < 3 && lc < MAX_LINES; j++) {
+        for (var j = i + 1; j < PARTICLE_COUNT && conns < 3 && lc < MAX_LINES; j++) {
           var dx = pos[j * 3] - pos[i * 3];
           var dy = pos[j * 3 + 1] - pos[i * 3 + 1];
-          if (Math.abs(dx) < D && Math.abs(dy) < D && dx * dx + dy * dy < D * D) {
+          if (Math.abs(dx) < MAX_CONNECT_DIST && Math.abs(dy) < MAX_CONNECT_DIST && dx * dx + dy * dy < MAX_CONNECT_DIST * MAX_CONNECT_DIST) {
             var b = lc * 6;
             lBuf[b]     = pos[i * 3];     lBuf[b + 1] = pos[i * 3 + 1]; lBuf[b + 2] = pos[i * 3 + 2];
             lBuf[b + 3] = pos[j * 3];     lBuf[b + 4] = pos[j * 3 + 1]; lBuf[b + 5] = pos[j * 3 + 2];
@@ -227,6 +231,7 @@ if (progressBar) {
   text.split('').forEach(function (ch) {
     var span = document.createElement('span');
     span.style.display = 'inline-block';
+    // Use non-breaking space (\u00A0) to preserve space width in inline-block spans
     span.textContent = ch === ' ' ? '\u00A0' : ch;
     nameEl.appendChild(span);
   });
